@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadEmployees, getEmployees } from '../store/employees';
 import EmployeeGroup from './EmployeeGroup';
+import Loading from './ui/Loading';
 
 // const mapToAlphabet = employeeList => {
 //   const mapped = {};
@@ -53,15 +54,16 @@ const Employees = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const alphabetGroups = groupByAlphabet(employees.list);
-    setEmployeeGroups(alphabetGroups);
+    const groupsByAlphabet = groupByAlphabet(employees.list);
+    setEmployeeGroups(groupsByAlphabet);
   }, [employees.list]);
 
   return employees.loading ? (
-    <p>Loading...</p>
+    <Loading />
   ) : (
     <div>
       <h2>Employees</h2>
+      <hr />
       {employeeGroups.map(group => (
         <EmployeeGroup key={group.title} {...group} />
       ))}

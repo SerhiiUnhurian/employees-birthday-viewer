@@ -34,17 +34,21 @@ const Birthdays = () => {
   const [birthdayGroups, setBirthdayGroups] = useState([]);
 
   useEffect(() => {
-    const monthGroups = groupByMonth(employees);
-    setBirthdayGroups(monthGroups);
+    const groupsByMonth = groupByMonth(employees);
+    setBirthdayGroups(groupsByMonth);
   }, [employees]);
 
   return (
     <div>
       <h2>Employees Birthday</h2>
       <hr />
-      {birthdayGroups.map(group => (
-        <BirthdayGroup key={group.title} {...group} />
-      ))}
+      {!birthdayGroups.length ? (
+        <p>Employees List is empty.</p>
+      ) : (
+        birthdayGroups.map(group => (
+          <BirthdayGroup key={group.title} {...group} />
+        ))
+      )}
     </div>
   );
 };
