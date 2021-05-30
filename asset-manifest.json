@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/employees-birthday-viewer/static/css/main.ddc51cf0.chunk.css",
+    "main.js": "/employees-birthday-viewer/static/js/main.5eb6d0fa.chunk.js",
+    "main.js.map": "/employees-birthday-viewer/static/js/main.5eb6d0fa.chunk.js.map",
+    "runtime-main.js": "/employees-birthday-viewer/static/js/runtime-main.5e90c7d8.js",
+    "runtime-main.js.map": "/employees-birthday-viewer/static/js/runtime-main.5e90c7d8.js.map",
+    "static/js/2.1152b8c0.chunk.js": "/employees-birthday-viewer/static/js/2.1152b8c0.chunk.js",
+    "static/js/2.1152b8c0.chunk.js.map": "/employees-birthday-viewer/static/js/2.1152b8c0.chunk.js.map",
+    "index.html": "/employees-birthday-viewer/index.html",
+    "static/css/main.ddc51cf0.chunk.css.map": "/employees-birthday-viewer/static/css/main.ddc51cf0.chunk.css.map",
+    "static/js/2.1152b8c0.chunk.js.LICENSE.txt": "/employees-birthday-viewer/static/js/2.1152b8c0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e90c7d8.js",
+    "static/js/2.1152b8c0.chunk.js",
+    "static/css/main.ddc51cf0.chunk.css",
+    "static/js/main.5eb6d0fa.chunk.js"
+  ]
+}
