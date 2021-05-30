@@ -5,23 +5,6 @@ import { loadEmployees, getEmployees } from '../store/employees';
 import EmployeeGroup from './EmployeeGroup';
 import Loading from './ui/Loading';
 
-// const mapToAlphabet = employeeList => {
-//   const mapped = {};
-
-//   employeeList.forEach(empl => {
-//     const firstLetter = empl.lastName.charAt(0).toUpperCase();
-//     console.log(firstLetter);
-//     if (mapped[firstLetter]) {
-//       mapped[firstLetter].push(empl);
-//     } else {
-//       mapped[firstLetter] = [empl];
-//     }
-//   });
-
-//   console.log(mapped);
-//   return mapped;
-// };
-
 const LETTERS_IN_ALPHABET = 26;
 
 const groupByAlphabet = employees => {
@@ -61,13 +44,15 @@ const Employees = () => {
   return employees.loading ? (
     <Loading />
   ) : (
-    <div>
+    <section>
       <h2>Employees</h2>
       <hr />
-      {employeeGroups.map(group => (
-        <EmployeeGroup key={group.title} {...group} />
-      ))}
-    </div>
+      <div>
+        {employeeGroups.map(group => (
+          <EmployeeGroup key={group.title} {...group} />
+        ))}
+      </div>
+    </section>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { changeEmployeeStatus } from '../store/employees';
+import PropTypes from 'prop-types';
 
 const EmployeeItem = ({ id, firstName, lastName, activeStatus }) => {
   const dispatch = useDispatch();
@@ -17,26 +18,33 @@ const EmployeeItem = ({ id, firstName, lastName, activeStatus }) => {
       >{`${lastName} ${firstName}`}</span>
       <div>
         <label>
-          not active
           <input
             type="radio"
             value="not-active"
             checked={!isActive}
             onChange={handleChange}
           />
-        </label>
+          not active
+        </label>{' '}
         <label>
-          active
           <input
             type="radio"
             value="active"
             checked={isActive}
             onChange={handleChange}
           />
+          active
         </label>
       </div>
     </li>
   );
+};
+
+EmployeeItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  activeStatus: PropTypes.string,
 };
 
 export default EmployeeItem;

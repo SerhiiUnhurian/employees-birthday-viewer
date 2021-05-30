@@ -39,7 +39,7 @@ const Birthdays = () => {
   }, [employees]);
 
   return (
-    <div>
+    <section>
       <h2>Employees Birthday</h2>
       <hr />
       {!birthdayGroups.length ? (
@@ -49,7 +49,7 @@ const Birthdays = () => {
           <BirthdayGroup key={group.title} {...group} />
         ))
       )}
-    </div>
+    </section>
   );
 };
 

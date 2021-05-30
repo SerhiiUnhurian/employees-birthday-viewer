@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import EmployeeItem from './EmployeeItem.jsx';
 
 const EmployeeGroup = ({ title, employees }) => {
@@ -13,6 +15,17 @@ const EmployeeGroup = ({ title, employees }) => {
       </ul>
     </div>
   );
+};
+
+EmployeeGroup.propTypes = {
+  title: PropTypes.string.isRequired,
+  employees: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default EmployeeGroup;
