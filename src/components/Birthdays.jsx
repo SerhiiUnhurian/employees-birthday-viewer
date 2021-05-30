@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import { getActiveEmployees } from '../store/employees';
 import BirthdayGroup from './BirthdayGroup';
+import clss from './Birthdays.module.css';
 
 const NUM_OF_MONTHS = 12;
 
@@ -39,17 +40,21 @@ const Birthdays = () => {
   }, [employees]);
 
   return (
-    <section>
-      <h2>Employees Birthday</h2>
-      <hr />
-      {!birthdayGroups.length ? (
-        <p>Employees List is empty.</p>
-      ) : (
-        birthdayGroups.map(group => (
-          <BirthdayGroup key={group.title} {...group} />
-        ))
-      )}
-    </section>
+    <div>
+      <div className={clss.title}>
+        <h2>Employees Birthday</h2>
+        <hr />
+      </div>
+      <div className={clss.birthdays}>
+        {!birthdayGroups.length ? (
+          <p>Employees List is empty.</p>
+        ) : (
+          birthdayGroups.map(group => (
+            <BirthdayGroup key={group.title} {...group} />
+          ))
+        )}
+      </div>
+    </div>
   );
 };
 

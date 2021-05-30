@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadEmployees, getEmployees } from '../store/employees';
 import EmployeeGroup from './EmployeeGroup';
 import Loading from './ui/Loading';
+import clss from './Employees.module.css';
 
 const LETTERS_IN_ALPHABET = 26;
 
@@ -44,15 +45,17 @@ const Employees = () => {
   return employees.loading ? (
     <Loading />
   ) : (
-    <section>
-      <h2>Employees</h2>
-      <hr />
-      <div>
+    <div>
+      <div className={clss.title}>
+        <h2>Employees</h2>
+        <hr />
+      </div>
+      <div className={clss.employees}>
         {employeeGroups.map(group => (
           <EmployeeGroup key={group.title} {...group} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

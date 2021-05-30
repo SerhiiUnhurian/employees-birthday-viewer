@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.container > * {
+  overflow: auto;
+  height: 100vh;
+}
+
+.employees {
+  flex-basis: 80%;
+}
+
+.birthdays {
+  flex-basis: 20%;
+}

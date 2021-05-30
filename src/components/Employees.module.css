@@ -1,0 +1,13 @@
+.title {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+}
+
+.employees {
+  margin: 0 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}

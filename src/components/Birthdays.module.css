@@ -1,0 +1,11 @@
+.title {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+}
+
+.birthdays {
+  margin: 0 2rem;
+}
