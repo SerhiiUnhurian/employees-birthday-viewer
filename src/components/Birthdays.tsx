@@ -1,15 +1,15 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import moment from 'moment';
-
+import { IEmployee, IEmployeeGroup } from '../interfaces';
 import { getActiveEmployees } from '../store/employees';
 import BirthdayGroup from './BirthdayGroup';
 import clss from './Birthdays.module.css';
 
 const NUM_OF_MONTHS = 12;
 
-const groupByMonth = employees => {
-  const employeeGroups = [];
+const groupByMonth = (employees: IEmployee[]) => {
+  const employeeGroups: IEmployeeGroup[] = [];
   const offset = moment().month();
 
   for (let i = 0; i < NUM_OF_MONTHS; i++) {
@@ -32,7 +32,7 @@ const groupByMonth = employees => {
 
 const Birthdays = () => {
   const employees = useSelector(getActiveEmployees);
-  const [birthdayGroups, setBirthdayGroups] = useState([]);
+  const [birthdayGroups, setBirthdayGroups] = useState<IEmployeeGroup[]>([]);
 
   useEffect(() => {
     const groupsByMonth = groupByMonth(employees);

@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { Middleware } from 'redux';
 import * as actions from '../api';
+import { RootState } from '../store';
 
 const baseURL = 'https://yalantis-react-school-api.yalantis.com/api/task0';
 
-const api =
+const api: Middleware<{}, RootState> =
   ({ dispatch }) =>
   next =>
   async action => {
@@ -21,15 +23,17 @@ const api =
         method,
         data,
       });
-      // General
       dispatch(actions.apiCallSuccess(response.data));
-      // Specific
-      if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
+
+      if (onSuccess) {
+        dispatch({ type: onSuccess, payload: response.data });
+      }
     } catch (error) {
-      // For general scenario
       dispatch(actions.apiCallFailed(error.message));
-      // For specific scenario
-      if (onError) dispatch({ type: onError, payload: error.message });
+
+      if (onError) {
+        dispatch({ type: onError, payload: error.message });
+      }
     }
   };
 

@@ -2,11 +2,11 @@ import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
-import configureStore from './store/configureStore';
+import store from './store/store';
 import Loading from './components/ui/Loading';
 import EmployeesBirthdayView from './components/EmployeesBirthdayView';
 
-const store = configureStore();
+// const store = configureStore();
 const persistor = persistStore(store);
 
 function App() {

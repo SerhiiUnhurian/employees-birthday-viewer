@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { loadEmployees, getEmployees } from '../store/employees';
+import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { IEmployee, IEmployeeGroup } from '../interfaces';
+import { getEmployees, loadEmployees } from '../store/employees';
 import EmployeeGroup from './EmployeeGroup';
-import Loading from './ui/Loading';
 import clss from './Employees.module.css';
+import Loading from './ui/Loading';
 
 const LETTERS_IN_ALPHABET = 26;
 
-const groupByAlphabet = employees => {
+const groupByAlphabet = (employees: IEmployee[]) => {
   const aCode = 'A'.charCodeAt(0);
-  const employeeGroups = [];
+  const employeeGroups: IEmployeeGroup[] = [];
 
   for (let i = 0; i < LETTERS_IN_ALPHABET; i++) {
     const currChar = String.fromCharCode(aCode + i);
@@ -29,9 +29,9 @@ const groupByAlphabet = employees => {
 };
 
 const Employees = () => {
-  const dispatch = useDispatch();
-  const employees = useSelector(getEmployees);
-  const [employeeGroups, setEmployeeGroups] = useState([]);
+  const dispatch = useAppDispatch();
+  const employees = useAppSelector(getEmployees);
+  const [employeeGroups, setEmployeeGroups] = useState<IEmployeeGroup[]>([]);
 
   useEffect(() => {
     dispatch(loadEmployees());

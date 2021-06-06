@@ -1,12 +1,20 @@
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useAppDispatch } from '../hooks';
+import { IEmployee } from '../interfaces';
 import { changeEmployeeStatus } from '../store/employees';
-import PropTypes from 'prop-types';
 
-const EmployeeItem = ({ id, firstName, lastName, activeStatus }) => {
-  const dispatch = useDispatch();
+type EmployeeItemProps = { activeStatus?: 'active' | 'not-active' } & IEmployee;
+
+const EmployeeItem = ({
+  id,
+  firstName,
+  lastName,
+  activeStatus = 'not-active',
+}: EmployeeItemProps) => {
+  const dispatch = useAppDispatch();
   const isActive = activeStatus === 'active';
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const activeStatus = e.target.value;
     dispatch(changeEmployeeStatus(id, activeStatus));
   };
@@ -38,13 +46,6 @@ const EmployeeItem = ({ id, firstName, lastName, activeStatus }) => {
       </div>
     </li>
   );
-};
-
-EmployeeItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
-  activeStatus: PropTypes.string,
 };
 
 export default EmployeeItem;
